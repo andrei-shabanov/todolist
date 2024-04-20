@@ -11,3 +11,5 @@ Bei dem weiteren Projektverlauf ist geplannt (sortiert nach Priorität):
 * Implementierung von Listen von Tasks. Eine Liste umfasst mehrere Tasks. Bei Default wird ein Task einer "Grundliste" zu implementieren
 
 Eine zusammenfassung der gewünschten Funktionalitäten (sowohl Grund- als auch erweiterte Fuinktionalitäten):
+
+![alt_text](github.com/andrei-shabanov/todolist/src/main/resources/UseCase Diagram.jpg)
