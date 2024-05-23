@@ -22,11 +22,11 @@ public class UserRestController {
     private final TaskMapper taskMapper;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TaskWithId>> getHero() {
+    public ResponseEntity<List<TaskWithId>> getTask() {
         return ResponseEntity.ok(taskMapper.getTasks());
     }
 
-    @GetMapping("/")
+    @GetMapping("/{id}")
     public ResponseEntity<TaskWithId> getTask(@PathVariable("id") final Long id) {
         final TaskWithId found = taskMapper.getTask(id);
         return found != null ? ResponseEntity.ok(found) : ResponseEntity.notFound().build();
@@ -38,15 +38,15 @@ public class UserRestController {
         return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TaskWithId> updateHero(@PathVariable("id") final Long id, @RequestBody Task body) {
-        final TaskWithId updatedHero = taskMapper.editTask(id, body);
-        if (updatedHero == null) return ResponseEntity.notFound().build();
-        else return ResponseEntity.ok(updatedHero);
+    @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TaskWithId> updateTask(@PathVariable("id") final Long id, @RequestBody Task body) {
+        final TaskWithId updatedTask = taskMapper.editTask(id, body);
+        if (updatedTask == null) return ResponseEntity.notFound().build();
+        else return ResponseEntity.ok(updatedTask);
     }
 
-    @DeleteMapping(path = "/")
-    public ResponseEntity<Void> deleteHero(@PathVariable("id") final Long id) {
-        return taskMapper.removeHero(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> deleteTask(@PathVariable("id") final Long id) {
+        return taskMapper.removeTask(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 }

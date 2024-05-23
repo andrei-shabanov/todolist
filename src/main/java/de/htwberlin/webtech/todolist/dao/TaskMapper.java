@@ -46,7 +46,7 @@ public class TaskMapper {
         return taskEdit;
     }
 
-    public boolean removeHero(Long id) {
+    public boolean removeTask(Long id) {
         return data.remove(id) != null;
     }
 
