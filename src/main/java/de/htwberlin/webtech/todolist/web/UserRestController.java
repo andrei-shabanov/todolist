@@ -26,7 +26,7 @@ public class UserRestController {
         return ResponseEntity.ok(taskMapper.getTasks());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/")
     public ResponseEntity<TaskWithId> getTask(@PathVariable("id") final Long id) {
         final TaskWithId found = taskMapper.getTask(id);
         return found != null ? ResponseEntity.ok(found) : ResponseEntity.notFound().build();
@@ -38,14 +38,14 @@ public class UserRestController {
         return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TaskWithId> updateHero(@PathVariable("id") final Long id, @RequestBody Task body) {
         final TaskWithId updatedHero = taskMapper.editTask(id, body);
         if (updatedHero == null) return ResponseEntity.notFound().build();
         else return ResponseEntity.ok(updatedHero);
     }
 
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/")
     public ResponseEntity<Void> deleteHero(@PathVariable("id") final Long id) {
         return taskMapper.removeHero(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
