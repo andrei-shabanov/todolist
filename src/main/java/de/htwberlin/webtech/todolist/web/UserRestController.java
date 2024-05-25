@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "https://todolistfrontend-qae0.onrender.com/")
 @RequestMapping(path = "/")
 public class UserRestController {
 
