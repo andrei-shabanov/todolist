@@ -37,14 +37,14 @@ public class UserRestController {
     }
 
     @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TaskWithId> updateTask(@PathVariable("id") final Long id, @RequestBody Task body) {
+    public ResponseEntity<TaskWithId> updateTask(@PathVariable("id") final long id, @RequestBody Task body) {
         final TaskWithId updatedTask = taskMapper.updateTask(id, body);
         if (updatedTask == null) return ResponseEntity.notFound().build();
         else return ResponseEntity.ok(updatedTask);
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> deleteTask(@PathVariable("id") final Long id) {
+    public ResponseEntity<Void> deleteTask(@PathVariable("id") final long id) {
         return taskMapper.removeTask(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 }
