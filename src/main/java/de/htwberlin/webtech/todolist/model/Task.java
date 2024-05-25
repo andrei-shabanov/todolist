@@ -2,6 +2,7 @@ package de.htwberlin.webtech.todolist.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.time.LocalDate;
 
