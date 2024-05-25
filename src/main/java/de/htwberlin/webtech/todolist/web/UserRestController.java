@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -33,14 +32,14 @@ public class UserRestController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Task> addHero(@Valid @RequestBody Task body) {
+    public ResponseEntity<Task> addTask(@Valid @RequestBody Task body) {
         final TaskWithId createdTask = taskMapper.addTask(body);
         return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TaskWithId> updateTask(@PathVariable("id") final Long id, @RequestBody Task body) {
-        final TaskWithId updatedTask = taskMapper.editTask(id, body);
+        final TaskWithId updatedTask = taskMapper.updateTask(id, body);
         if (updatedTask == null) return ResponseEntity.notFound().build();
         else return ResponseEntity.ok(updatedTask);
     }

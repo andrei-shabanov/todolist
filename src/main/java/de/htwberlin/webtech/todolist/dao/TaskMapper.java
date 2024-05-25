@@ -30,13 +30,13 @@ public class TaskMapper {
     }
 
     public TaskWithId addTask(Task task) {
-        Long taskId = this.id++;
+        long taskId = this.id++;
         TaskWithId newTask = new TaskWithId(task.getTitle(), task.getDetails(), task.getDeadline(), taskId);
-        data.put(this.id, newTask);
+        data.put(taskId, newTask); // Use taskId instead of this.id
         return newTask;
     }
 
-    public TaskWithId editTask(Long id, Task task) {
+    public TaskWithId updateTask(Long id, Task task) {
         if (!data.containsKey(id)) return null;
         final TaskWithId taskEdit = data.get(id);
         taskEdit.setTitle(task.getTitle());
