@@ -1,28 +1,34 @@
 package de.htwberlin.webtech.todolist.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.time.LocalDate;
 
-// complete equivalent to the frontend class
+// internal backend class, ein Controller per Entitaet
+@Entity
 @Getter
 @Setter
 public class Task {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String title;
     private String details;
     private LocalDate deadline;
     private boolean completed = false;
 
-    public Task (String title, String details, LocalDate deadline) {
+    public Task(String title, String details, LocalDate deadline, long id) {
+        this.id = id;
         this.title = title;
         this.details = details;
         this.deadline = deadline;
     }
 
-    public boolean getCompleted() {
-        return this.completed;
-    }
+    public Task() { }
 }
