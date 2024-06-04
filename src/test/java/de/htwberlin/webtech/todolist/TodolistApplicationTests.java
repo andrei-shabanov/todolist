@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 class TodolistApplicationTests {
 
 	@Disabled("Until i turn it on")
-	@Test
 	void contextLoads() {
 	}
 
