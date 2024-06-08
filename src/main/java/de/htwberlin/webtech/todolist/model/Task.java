@@ -23,8 +23,7 @@ public class Task {
     private LocalDate deadline;
     private boolean completed = false;
 
-    public Task(String title, String details, LocalDate deadline, long id) {
-        this.id = id;
+    public Task(String title, String details, LocalDate deadline) {
         this.title = title;
         this.details = details;
         this.deadline = deadline;
