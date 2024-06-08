@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @CrossOrigin(origins = "https://todolistfrontend-qae0.onrender.com/")
-@RequestMapping(path = "/")
+@RequestMapping(path = "/tasks")
 public class TaskController {
 
     // von repository aufrufen und edit methode aufrufen
