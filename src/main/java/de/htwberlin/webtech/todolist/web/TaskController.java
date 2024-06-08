@@ -46,4 +46,10 @@ public class TaskController {
     public ResponseEntity<Void> deleteTask(@PathVariable("id") final long id) {
         return taskService.removeTask(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
+
+    @PostMapping("/{id}/complete")
+    public ResponseEntity<Void> markAsCompleted(@PathVariable Long id) {
+        taskService.markAsCompleted(id);
+        return ResponseEntity.ok().build();
+    }
 }

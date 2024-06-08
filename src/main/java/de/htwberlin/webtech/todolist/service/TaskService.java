@@ -33,4 +33,10 @@ public class TaskService {
         if (exists) taskRepository.deleteById(id);
         return exists;
     }
+
+    public void markAsCompleted(Long id) {
+        Task task = taskRepository.findById(id).orElseThrow(RuntimeException::new);
+        task.setCompleted(true);
+        taskRepository.save(task);
+    }
 }
