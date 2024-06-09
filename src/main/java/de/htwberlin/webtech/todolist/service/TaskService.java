@@ -39,4 +39,10 @@ public class TaskService {
         task.setCompleted(true);
         taskRepository.save(task);
     }
+
+    public void markAsUncompleted(Long id) {
+        Task task = taskRepository.findById(id).orElseThrow(RuntimeException::new);
+        task.setCompleted(false);
+        taskRepository.save(task);
+    }
 }

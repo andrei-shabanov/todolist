@@ -52,4 +52,10 @@ public class TaskController {
         taskService.markAsCompleted(id);
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/{id}/uncomplete")
+    public ResponseEntity<Void> markAsUncompleted(@PathVariable Long id) {
+        taskService.markAsUncompleted(id);
+        return ResponseEntity.ok().build();
+    }
 }
