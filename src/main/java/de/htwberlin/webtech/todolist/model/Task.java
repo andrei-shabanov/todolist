@@ -9,7 +9,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-// internal backend class, ein Controller per Entitaet
+// ein Controller per Entitaet
 @Entity
 @Getter
 @Setter
@@ -22,6 +22,8 @@ public class Task {
     private String details;
     private LocalDate deadline;
     private boolean completed = false;
+    // private boolean marked = false;
+    // private long UserId;
 
     public Task(String title, String details, LocalDate deadline) {
         this.title = title;
@@ -29,5 +31,13 @@ public class Task {
         this.deadline = deadline;
     }
 
+    /*
+    public Task(String title, String details, LocalDate deadline, long userId) {
+        this.title = title;
+        this.details = details;
+        this.deadline = deadline;
+        this.userId = userId;
+    }
+     */
     public Task() { }
 }
