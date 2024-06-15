@@ -19,6 +19,8 @@ public class Task {
     private String details;
     private LocalDate deadline;
     private boolean completed = false;
+    // private boolean marked = false;
+    // private long listOfTasksId;
 
     public Task(String title, String details, LocalDate deadline) {
         this.title = title;
@@ -31,7 +33,7 @@ public class Task {
         this.title = title;
         this.details = details;
         this.deadline = deadline;
-        this.userId = userId;
+        this.listOfTasksId = listOfTasksId;
     }
      */
 
