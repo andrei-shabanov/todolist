@@ -45,4 +45,18 @@ public class TaskService {
         task.setCompleted(false);
         taskRepository.save(task);
     }
+
+    /*
+    public void markTask(Long id) {
+        Task task = taskRepository.findById(id).orElseThrow(RuntimeException::new);
+        task.setMarked(true);
+        taskRepository.save(task);
+    }
+
+    public void unmarkTask(Long id) {
+        Task task = taskRepository.findById(id).orElseThrow(RuntimeException::new);
+        task.setMarked(false);
+        taskRepository.save(task);
+    }
+     */
 }

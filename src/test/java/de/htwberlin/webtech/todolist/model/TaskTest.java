@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class TaskTest {
 
-    @Disabled
+    @Test
     void testToStringMethod() {
         final String title = "Andrei";
         final String details = "andrei";
