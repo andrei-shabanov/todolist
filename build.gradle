@@ -41,9 +41,18 @@ tasks.named('test') {
 }
 
 sourceSets {
-	test {
+	main {
 		resources {
-			srcDirs += ['src/test/resources']
+			srcDir 'src/main/resources'
 		}
 	}
+	test {
+		resources {
+			srcDir 'src/test/resources'
+		}
+	}
+}
+
+tasks.withType(Copy) {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
