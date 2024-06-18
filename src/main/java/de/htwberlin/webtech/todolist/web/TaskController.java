@@ -18,17 +18,12 @@ public class TaskController {
     // von repository aufrufen und edit methode aufrufen
     private final TaskService taskService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/load",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Iterable<Task>> getTasks() {
         return ResponseEntity.ok(taskService.getTasks());
     }
 
-    @GetMapping(path = "/load", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Iterable<Task>> getAllTasks() {
-        return ResponseEntity.ok(taskService.getTasks());
-    }
-
-    @GetMapping("/{id}/")
+    @GetMapping("/{id}/get")
     public ResponseEntity<Task> getTask(@PathVariable("id") final Long id) {
         final Task found = taskService.getTask(id);
         return found != null ? ResponseEntity.ok(found) : ResponseEntity.notFound().build();
@@ -58,7 +53,6 @@ public class TaskController {
         taskService.markAsCompleted(id);
         return ResponseEntity.ok().build();
     }
-
 
     @PostMapping("/{id}/uncomplete")
     public ResponseEntity<Void> markAsUncompleted(@PathVariable Long id) {
