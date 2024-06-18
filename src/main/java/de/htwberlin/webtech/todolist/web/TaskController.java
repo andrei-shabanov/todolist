@@ -23,7 +23,7 @@ public class TaskController {
         return ResponseEntity.ok(taskService.getTasks());
     }
 
-    @GetMapping(name = "/load", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/load", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Iterable<Task>> getAllTasks() {
         return ResponseEntity.ok(taskService.getTasks());
     }
