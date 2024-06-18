@@ -23,6 +23,11 @@ public class TaskController {
         return ResponseEntity.ok(taskService.getTasks());
     }
 
+    @GetMapping(name = "/load", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Iterable<Task>> getAllTasks() {
+        return ResponseEntity.ok(taskService.getTasks());
+    }
+
     @GetMapping("/{id}/")
     public ResponseEntity<Task> getTask(@PathVariable("id") final Long id) {
         final Task found = taskService.getTask(id);
