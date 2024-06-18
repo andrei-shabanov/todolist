@@ -10,6 +10,5 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/lists")
 public class ListOfTasksController {
 
-
     private final ListOfTasksService listOfTasksService;
 }

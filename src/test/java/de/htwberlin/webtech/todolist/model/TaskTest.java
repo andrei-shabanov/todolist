@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TaskTest {
 
     @Test
+    @DisplayName("TaskTest: tests toString()")
     void testToStringMethod() {
         final String title = "Andrei";
         final String details = "andrei";
@@ -23,5 +24,4 @@ public class TaskTest {
         final String actual = task.toString();
         assertEquals(expected, actual);
     }
-
 }
