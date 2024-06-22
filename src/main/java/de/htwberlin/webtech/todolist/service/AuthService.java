@@ -1,7 +1,5 @@
 package de.htwberlin.webtech.todolist.service;
 
-import de.htwberlin.webtech.todolist.model.*;
-import de.htwberlin.webtech.todolist.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

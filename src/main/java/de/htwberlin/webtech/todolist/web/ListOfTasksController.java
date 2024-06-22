@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = "https://todolistfrontend-qae0.onrender.com/")
 @RequestMapping(path = "/lists")
 public class ListOfTasksController {
 
