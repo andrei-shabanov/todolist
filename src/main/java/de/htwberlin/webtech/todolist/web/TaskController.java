@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @CrossOrigin(origins = "https://todolistfrontend-qae0.onrender.com/")
-@RequestMapping(path = "/tasks")
+@RequestMapping("/tasks")
 public class TaskController {
 
-    // von repository aufrufen und edit methode aufrufen
     private final TaskService taskService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Iterable<Task>> getTask() {
+    public ResponseEntity<Iterable<Task>> getTasks() {
         return ResponseEntity.ok(taskService.getTasks());
     }
 
