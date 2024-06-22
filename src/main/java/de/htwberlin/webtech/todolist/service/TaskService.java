@@ -46,7 +46,6 @@ public class TaskService {
         taskRepository.save(task);
     }
 
-    /*
     public void markTask(Long id) {
         Task task = taskRepository.findById(id).orElseThrow(RuntimeException::new);
         task.setMarked(true);
@@ -58,5 +57,4 @@ public class TaskService {
         task.setMarked(false);
         taskRepository.save(task);
     }
-     */
 }

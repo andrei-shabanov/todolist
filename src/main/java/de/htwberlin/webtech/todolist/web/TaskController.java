@@ -58,4 +58,16 @@ public class TaskController {
         taskService.markAsUncompleted(id);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping("/{id}/mark")
+    public ResponseEntity<Void> markTask(@PathVariable Long id) {
+        taskService.markTask(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{id}/unmark")
+    public ResponseEntity<Void> unmarkTask(@PathVariable Long id) {
+        taskService.unmarkTask(id);
+        return ResponseEntity.ok().build();
+    }
 }

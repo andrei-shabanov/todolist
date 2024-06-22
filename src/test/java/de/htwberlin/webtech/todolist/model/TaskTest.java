@@ -13,14 +13,14 @@ public class TaskTest {
     @Test
     @DisplayName("TaskTest: tests toString()")
     void testToStringMethod() {
-        final String title = "Andrei";
-        final String details = "andrei";
-        final LocalDate dealine = LocalDate.of(2018, 1, 1);
+        final String title = "WebTech 1";
+        final String details = "Thema überlegt, Paar gefunden, Repo erstellt, Entity Klassen überlegt, Spring App mit REST";
+        final LocalDate deadline = LocalDate.of(2024, 4, 21);
 
-        final Task task = new Task(title, details, dealine);
-        task.setId(42);
+        final Task task = new Task(title, details, deadline);
+        task.setId(1L);
 
-        final String expected = "Andrei";
+        final String expected = "WebTech 1";
         final String actual = task.toString();
         assertEquals(expected, actual);
     }

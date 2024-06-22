@@ -18,6 +18,5 @@ public class ListOfTasks {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
-    private Long userId;
 
 }
