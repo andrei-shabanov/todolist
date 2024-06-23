@@ -5,6 +5,15 @@ import de.htwberlin.webtech.todolist.persistence.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.StreamSupport;
+import java.util.stream.Collectors;
+
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
+
 // quasi TaskRepo implementiert
 @Service
 public class TaskService {
@@ -56,5 +65,11 @@ public class TaskService {
         Task task = taskRepository.findById(id).orElseThrow(RuntimeException::new);
         task.setMarked(false);
         taskRepository.save(task);
+    }
+
+    public Iterable<Task> getTasksFromList(long id) {
+        return StreamSupport.stream(taskRepository.findAll().spliterator(), false)
+                .filter(task -> task.getListOfTasksId() == id)
+                .toList();
     }
 }

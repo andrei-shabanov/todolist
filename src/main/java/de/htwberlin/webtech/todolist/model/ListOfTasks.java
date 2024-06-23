@@ -19,4 +19,8 @@ public class ListOfTasks {
     private long id;
     private String title;
 
+    public ListOfTasks(String title) {
+        this.title = title;
+    }
+
 }

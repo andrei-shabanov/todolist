@@ -68,4 +68,9 @@ public class TaskController {
         taskService.unmarkTask(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping(name = "/{id}/getListOfTasks", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Iterable<Task>> getTasksFromList(@PathVariable("id") final long id) {
+        return ResponseEntity.ok(taskService.getTasksFromList(id));
+    }
 }
