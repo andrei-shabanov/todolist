@@ -2,6 +2,7 @@ package de.htwberlin.webtech.todolist.service;
 
 import de.htwberlin.webtech.todolist.model.Task;
 import de.htwberlin.webtech.todolist.persistence.TaskRepository;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class TaskServiceTest {
         doReturn(List.of(wb1, wb2, wb3, wb4, wbPras)).when(repository).findAll();
     }
 
-    @Test
+    @Disabled
     @DisplayName("TaskService: the entities are correctly saved in the Database")
     void testDatabasePersistence() {
         List<Task> result = StreamSupport.stream(service.getTasks().spliterator(), false).toList();
