@@ -28,11 +28,11 @@ public class TaskServiceTest {
 
     @BeforeEach
     void setUpMockRepository() {
-        Task wb1 = new Task("WebTech 1", "", LocalDate.of(2024, 4, 21));
-        Task wb2 = new Task("WebTech 2", "", LocalDate.of(2024, 5, 12));
-        Task wb3 = new Task("WebTech 3", "", LocalDate.of(2024, 5, 26));
-        Task wb4 = new Task("WebTech 4", "", LocalDate.of(2024, 6, 16));
-        Task wbPras = new Task("WebTech Projekt", "", LocalDate.of(2024, 7, 1));
+        Task wb1 = new Task("WebTech 1", "", LocalDate.of(2024, 4, 21), 1);
+        Task wb2 = new Task("WebTech 2", "", LocalDate.of(2024, 5, 12), 1);
+        Task wb3 = new Task("WebTech 3", "", LocalDate.of(2024, 5, 26), 1);
+        Task wb4 = new Task("WebTech 4", "", LocalDate.of(2024, 6, 16), 1);
+        Task wbPras = new Task("WebTech Projekt", "", LocalDate.of(2024, 7, 1), 1);
 
 
         doReturn(List.of(wb1, wb2, wb3, wb4, wbPras)).when(repository).findAll();
