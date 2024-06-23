@@ -16,7 +16,7 @@ public class TaskController {
 
     private final TaskService taskService;
 
-    @GetMapping(name = "tasks", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Iterable<Task>> getTasks() {
         return ResponseEntity.ok(taskService.getTasks());
     }
@@ -69,7 +69,7 @@ public class TaskController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(name = "/{id}/getListOfTasks", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{id}/getListOfTasks", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Iterable<Task>> getTasksFromList(@PathVariable("id") final long id) {
         return ResponseEntity.ok(taskService.getTasksFromList(id));
     }
