@@ -16,7 +16,7 @@ public class TaskController {
 
     private final TaskService taskService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(name = "tasks", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Iterable<Task>> getTasks() {
         return ResponseEntity.ok(taskService.getTasks());
     }
