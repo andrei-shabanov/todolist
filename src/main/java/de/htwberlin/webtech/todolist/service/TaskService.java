@@ -67,6 +67,12 @@ public class TaskService {
         taskRepository.save(task);
     }
 
+    public void setListOfTasksId(Long id, Long listOfTasksId) {
+        Task task = taskRepository.findById(id).orElseThrow(RuntimeException::new);
+        task.setListOfTasksId(listOfTasksId);
+        taskRepository.save(task);
+    }
+
     public Iterable<Task> getTasksFromList(long id) {
         return StreamSupport.stream(taskRepository.findAll().spliterator(), false)
                 .filter(task -> task.getListOfTasksId() == id)

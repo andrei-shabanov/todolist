@@ -1,7 +1,6 @@
 package de.htwberlin.webtech.todolist.web;
 
 import de.htwberlin.webtech.todolist.model.ListOfTasks;
-import de.htwberlin.webtech.todolist.model.Task;
 import de.htwberlin.webtech.todolist.service.ListOfTasksService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -35,14 +34,9 @@ public class ListOfTasksController {
     }
 
     @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ListOfTasks> updateTask(@PathVariable("id") final long id, @RequestBody ListOfTasks body) {
+    public ResponseEntity<ListOfTasks> updateList(@PathVariable("id") final long id, @RequestBody ListOfTasks body) {
         final ListOfTasks updatedTask = listOfTasksService.editList(body);
         if (updatedTask == null) return ResponseEntity.notFound().build();
         else return ResponseEntity.ok(updatedTask);
-    }
-
-    @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> deleteTask(@PathVariable("id") final long id) {
-        return listOfTasksService.removeList(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 }
