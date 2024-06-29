@@ -18,15 +18,13 @@ public class Task {
     private LocalDate deadline;
     private boolean completed = false;
     private boolean marked = false;
+    private long listOfTasksId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private ListOfTasks listOfTasks;
-
-    public Task(String title, String details, LocalDate deadline, ListOfTasks listOfTasks) {
+    public Task(String title, String details, LocalDate deadline, long listOfTasksId) {
         this.title = title;
         this.details = details;
         this.deadline = deadline;
-        this.listOfTasks = listOfTasks;
+        this.listOfTasksId = listOfTasksId;
     }
 
     public String toString() {

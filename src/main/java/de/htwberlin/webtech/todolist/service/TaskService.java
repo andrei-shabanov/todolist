@@ -1,6 +1,5 @@
 package de.htwberlin.webtech.todolist.service;
 
-import de.htwberlin.webtech.todolist.model.ListOfTasks;
 import de.htwberlin.webtech.todolist.model.Task;
 import de.htwberlin.webtech.todolist.persistence.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,9 +67,9 @@ public class TaskService {
         taskRepository.save(task);
     }
 
-    public Iterable<Task> getTasksFromList(ListOfTasks listOfTasks) {
+    public Iterable<Task> getTasksFromList(long id) {
         return StreamSupport.stream(taskRepository.findAll().spliterator(), false)
-                .filter(task -> task.getListOfTasks().equals(listOfTasks))
+                .filter(task -> task.getListOfTasksId() == id)
                 .toList();
     }
 }
