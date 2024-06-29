@@ -1,5 +1,6 @@
 package de.htwberlin.webtech.todolist.web;
 
+import de.htwberlin.webtech.todolist.model.ListOfTasks;
 import de.htwberlin.webtech.todolist.model.Task;
 import de.htwberlin.webtech.todolist.service.TaskService;
 import jakarta.validation.Valid;
@@ -70,7 +71,7 @@ public class TaskController {
     }
 
     @GetMapping(path = "/{id}/getListOfTasks", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Iterable<Task>> getTasksFromList(@PathVariable("id") final long id) {
-        return ResponseEntity.ok(taskService.getTasksFromList(id));
+    public ResponseEntity<Iterable<Task>> getTasksFromList(@PathVariable("id") final ListOfTasks listOfTasks) {
+        return ResponseEntity.ok(taskService.getTasksFromList(listOfTasks));
     }
 }

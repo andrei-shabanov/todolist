@@ -18,13 +18,16 @@ public class Task {
     private LocalDate deadline;
     private boolean completed = false;
     private boolean marked = false;
-    private long listOfTasksId;
 
-    public Task(String title, String details, LocalDate deadline, long listOfTasksId) {
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private ListOfTasks listOfTasks;
+
+    public Task(String title, String details, LocalDate deadline, ListOfTasks listOfTasks) {
         this.title = title;
         this.details = details;
         this.deadline = deadline;
-        this.listOfTasksId = listOfTasksId;
+        this.listOfTasks = listOfTasks;
     }
 
     public String toString() {

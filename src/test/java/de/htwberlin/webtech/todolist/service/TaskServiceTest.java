@@ -1,5 +1,6 @@
 package de.htwberlin.webtech.todolist.service;
 
+import de.htwberlin.webtech.todolist.model.ListOfTasks;
 import de.htwberlin.webtech.todolist.model.Task;
 import de.htwberlin.webtech.todolist.persistence.TaskRepository;
 import org.junit.jupiter.api.Disabled;
@@ -29,17 +30,17 @@ public class TaskServiceTest {
 
     @BeforeEach
     void setUpMockRepository() {
-        Task wb1 = new Task("WebTech 1", "", LocalDate.of(2024, 4, 21), 1);
-        Task wb2 = new Task("WebTech 2", "", LocalDate.of(2024, 5, 12), 1);
-        Task wb3 = new Task("WebTech 3", "", LocalDate.of(2024, 5, 26), 1);
-        Task wb4 = new Task("WebTech 4", "", LocalDate.of(2024, 6, 16), 1);
-        Task wbPras = new Task("WebTech Projekt", "", LocalDate.of(2024, 7, 1), 1);
-
+        final ListOfTasks webtechList = new ListOfTasks("WebTech");
+        Task wb1 = new Task("WebTech 1", "", LocalDate.of(2024, 4, 21), webtechList);
+        Task wb2 = new Task("WebTech 2", "", LocalDate.of(2024, 5, 12), webtechList);
+        Task wb3 = new Task("WebTech 3", "", LocalDate.of(2024, 5, 26), webtechList);
+        Task wb4 = new Task("WebTech 4", "", LocalDate.of(2024, 6, 16), webtechList);
+        Task wbPras = new Task("WebTech Projekt", "", LocalDate.of(2024, 7, 1), webtechList);
 
         doReturn(List.of(wb1, wb2, wb3, wb4, wbPras)).when(repository).findAll();
     }
 
-    @Disabled
+    @Test
     @DisplayName("TaskService: the entities are correctly saved in the Database")
     void testDatabasePersistence() {
         List<Task> result = StreamSupport.stream(service.getTasks().spliterator(), false).toList();
