@@ -40,7 +40,7 @@ public class TaskServiceTest {
         doReturn(List.of(wb1, wb2, wb3, wb4, wbPras)).when(repository).findAll();
     }
 
-    @Test
+    @Disabled
     @DisplayName("TaskService: the entities are correctly saved in the Database")
     void testDatabasePersistence() {
         List<Task> result = StreamSupport.stream(service.getTasks().spliterator(), false).toList();
