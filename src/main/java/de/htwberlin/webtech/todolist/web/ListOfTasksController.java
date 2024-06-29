@@ -45,6 +45,4 @@ public class ListOfTasksController {
     public ResponseEntity<Void> deleteTask(@PathVariable("id") final long id) {
         return listOfTasksService.removeList(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
-
-
 }

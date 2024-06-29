@@ -19,9 +19,9 @@ public class Task {
     private boolean completed = false;
     private boolean marked = false;
 
-    @ManyToOne
-    @JoinColumn(name = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private ListOfTasks listOfTasks;
+    private long listOfTasks_id;
 
     public Task(String title, String details, LocalDate deadline, ListOfTasks listOfTasks) {
         this.title = title;
