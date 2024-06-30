@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class TodolistApplicationTests {
 
-    @Disabled
+    @Test
     @DisplayName("Application test: default test, must always pass")
     void contextLoads() {}
 
