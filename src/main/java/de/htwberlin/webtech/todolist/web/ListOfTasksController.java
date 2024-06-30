@@ -22,13 +22,13 @@ public class ListOfTasksController {
     }
 
     @GetMapping("/{id}/get")
-    public ResponseEntity<ListOfTasks> getTask(@PathVariable("id") final Long id) {
+    public ResponseEntity<ListOfTasks> getListOfTasks(@PathVariable("id") final Long id) {
         final ListOfTasks found = listOfTasksService.getList(id);
         return found != null ? ResponseEntity.ok(found) : ResponseEntity.notFound().build();
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ListOfTasks> addTask(@Valid @RequestBody ListOfTasks body) {
+    public ResponseEntity<ListOfTasks> addListOfTasks(@Valid @RequestBody ListOfTasks body) {
         final ListOfTasks createdTask = listOfTasksService.saveList(body);
         return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
     }
