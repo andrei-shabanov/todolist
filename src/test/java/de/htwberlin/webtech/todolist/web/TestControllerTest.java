@@ -69,7 +69,7 @@ public class TestControllerTest {
     @Test
     @DisplayName("TaskController: the entities are added via the Controller")
     void testAddTask() throws Exception {
-        Task newTask = new Task("New Task", "Details", LocalDate.of(2024, 4, 22), 2);
+        Task newTask = new Task("WebTech 2", "", LocalDate.of(2024, 5, 12), 2);
         newTask.setId(2L);
 
         when(service.saveTask(any(Task.class))).thenReturn(newTask);
